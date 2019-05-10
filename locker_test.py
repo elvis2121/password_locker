@@ -13,6 +13,10 @@ class TestUsers(unittest.TestCase):
 
         self.assertEqual(self.newuser.login_username,'mongoose2121')
         self.assertEqual(self.newuser.login_password,'kenyan001')
+    
+    def test_saveuser(self):
+        self.newuser.saveusers('','')
+        self.assertEqual(len(Users.userslist),+2)    
 
        
 
