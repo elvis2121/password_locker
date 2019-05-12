@@ -6,13 +6,13 @@ class Credentials:
         self.app_username = app_username
         self.app_password = app_password
 
-    @classmethod
+    
     def savecredentials(self,appname,username, password):
         self.credentials_list.append(appname)
         self.credentials_list.append(username)
         self.credentials_list.append(password)
         
-        print('user saved successfully')
+        print('Credentials saved successfully!!!!!!!!!!!!!!!!')
         
 
     @classmethod

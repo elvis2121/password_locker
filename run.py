@@ -1,12 +1,15 @@
 from users import Users
 from credentials import Credentials
+import random
 
 
 print('WELCOME TO PASSWORD LOCKER')
 print('-' *30)
 
 credentials1 = Credentials('','','')
-user1 = Users('user1','user2')
+user1 = Users('','')
+
+random1 = random
 
 def main():
                         
@@ -19,6 +22,8 @@ def main():
                 m = 1
                 if m % 2 == 1:
                         return round(m)
+
+        
 
 
         def getuserinput(username,password):
@@ -40,19 +45,31 @@ def main():
                         print('username and password donot match')
                         dashboard()
 
-        def getcredentialsinput(appname,appusername,apppassword):
+        def getcredentialsinput(appname,appusername,apppassword):               
 
-                credentials1.app_name = input('enter app name: ')
-                credentials1.app_username = input('enter app username: ')
-                credentials1.app_password =input('enter app password: ') 
+                dashboard3()
+
+                
 
         def createcredentials(appname,appusername,apppassword):
+                
                 credentials1 = Credentials(appname,appusername,apppassword)
 
-        def displaycredentials():
-                print(credentials1.savecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password))                       
-        
-       
+        def dashboard3():
+                credentials1.app_name = input('enter app name: ')
+                credentials1.app_username = input('enter app username: ')
+
+                print('select a choice:\n ag - autogenerate password, sp - setpassword ')
+                choice3 =input()
+
+                if choice3 == 'ag':
+                        credentials1.app_password = random1.randint(0,100000)
+                        print('auto generated password is: {} '.format(credentials1.app_password))
+                        
+                createcredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
+                credentials1.savecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
+
+
 
 
         def dashboard2():
@@ -61,15 +78,16 @@ def main():
                 choice2=input()
 
                 if choice2 == 'ac':
-                        getcredentialsinput(credentials1.app_name,credentials1.app_username,credentials1.app_password)
-                        createcredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
-                        credentials1.savecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
+                        dashboard3()
                         dashboard2()
 
                 if choice2 == 'dc':
-                        credentials1.displaycredentials()
+                        Credentials.displaycredentials()
                         dashboard2()
-        
+
+                if (choice2 != 'ac' and choice2 != 'dc'):
+                        print('invalid choice!!!!')
+                        dashboard2()          
 
         def dashboard():
                 print('What would you like to do? \n rg - register account, lg - login,')
