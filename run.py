@@ -95,7 +95,7 @@ def main():
                         dashboard2()          
 
         def dashboard():
-                print('What would you like to do? \n rg - register account, lg - login,')
+                print('What would you like to do? \n rg - register account, lg - login, dl- delete account')
                 choice1 = input()
 
 
@@ -114,8 +114,12 @@ def main():
                         getuserinput(user1.login_username,user1.login_password)        
                         checkuser()
                 
+                if choice1 == 'dl':
+                        user1.login_username = input('enter username of account to be deleted: ')
+                        user1.login_password = input('enter password of account to be deleted: ')
+                        user1.deleteuser(user1.login_username,user1.login_password)
 
-                if (choice1 != 'rg' and choice1 != 'lg'):
+                if (choice1 != 'rg' and choice1 != 'lg' and choice1 != 'dl'):
                         print('invalid choice!!!!')
                         dashboard()    
 

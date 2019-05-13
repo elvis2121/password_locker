@@ -15,6 +15,15 @@ class Users:
         print('user saved successfully')
         print(Users.userslist)
 
+    def deleteuser(self,username, password):
+        for x in Users.userslist:
+            if username and password == x:
+                Users.userslist.remove(username)
+                Users.userslist.remove(password)
+                print('account deleted')
+                print(Users.userslist)
+
+
     
 
           
