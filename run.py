@@ -11,8 +11,7 @@ user1 = Users('','')
 
 random1 = random
 
-def main():
-                        
+def main():                        
         def index():
                 i = 0
                 if i % 2 == 0:
@@ -21,23 +20,29 @@ def main():
         def index2():
                 m = 1
                 if m % 2 == 1:
-                        return round(m)
-
-        
+                        return round(m)       
 
 
         def getuserinput(username,password):
-                
+                '''
+                method to get user input
+                '''                
                 user1.login_username = input("enter your username: ")
                 user1.login_password = input("enter your password: ")
                 print("your username is {} and password is {}\n".format(user1.login_username,user1.login_password))
         
 
         def createuser(username,password):
+                """
+                method to initialize the user
+                """
                 user1=Users(username,password) 
 
+
         def checkuser():
-                
+                """
+                method to check whether login details match
+                """                
                 if user1.login_username == Users.userslist[index()] and user1.login_password == Users.userslist[index2()]:
                         print('username and password passed')
                         dashboard2()
@@ -45,17 +50,26 @@ def main():
                         print('username and password donot match')
                         dashboard()
 
-        def getcredentialsinput(appname,appusername,apppassword):               
+        def getcredentialsinput(appname,appusername,apppassword):
+                """
+                method to get input from the user
+                """               
 
                 dashboard3()
 
                 
 
         def createcredentials(appname,appusername,apppassword):
+                """
+                method to create credentials to be stored
+                """
                 
                 credentials1 = Credentials(appname,appusername,apppassword)
 
         def dashboard3():
+                """
+                method to generate password or enter own password
+                """
                 credentials1.app_name = input('enter app name: ')
                 credentials1.app_username = input('enter app username: ')
 
@@ -78,6 +92,9 @@ def main():
 
 
         def dashboard2():
+                """
+                method to prompt for user input and evaluate it
+                """
 
                 print('select a choice:\n ac - add credentials, dc - display credentials, dl - delete credentials')
                 choice2=input()
@@ -101,6 +118,9 @@ def main():
                         dashboard2()          
 
         def dashboard():
+                """
+                method to register, login and delete user
+                """
                 print('What would you like to do? \n rg - register account, lg - login, dl- delete account')
                 choice1 = input()
 
