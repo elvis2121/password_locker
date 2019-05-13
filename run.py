@@ -65,11 +65,16 @@ def main():
                 if choice3 == 'ag':
                         credentials1.app_password = random1.randint(0,100000)
                         print('auto generated password is: {} '.format(credentials1.app_password))
-                        
-                createcredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
-                credentials1.savecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
+                                 
+                        createcredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
+                        credentials1.savecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
 
+                if choice3 == 'sp':
+                        credentials1.app_password = input('enter your password: ')
+                        print('your password is: {} '.format(credentials1.app_password))
 
+                        createcredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
+                        credentials1.savecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)
 
 
         def dashboard2():
