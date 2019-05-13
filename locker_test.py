@@ -1,15 +1,17 @@
 import unittest
 from users import Users
+from credentials import Credentials
 
 
 
-class TestUsers(unittest.TestCase):
+class TestLocker(unittest.TestCase):
 
     def setUp(self):
         
         self.newuser = Users('mongoose2121','kenyan001')
+        self.newcredentials = Credentials('twitter','marto','martin123')
 
-    def test_init(self):
+    def test_createuser(self):
 
         self.assertEqual(self.newuser.login_username,'mongoose2121')
         self.assertEqual(self.newuser.login_password,'kenyan001')
@@ -22,6 +24,11 @@ class TestUsers(unittest.TestCase):
         self.newuser.saveusers('kevo','kevo123')
         self.newuser.deleteuser('kevo','kevo123')
         self.assertEqual(len(Users.userslist),0)
+
+    def test_createcredentials(self):
+        self.assertEqual(self.newcredentials.app_name,'twitter')
+        self.assertEqual(self.newcredentials.app_username,'marto')
+        self.assertEqual(self.newcredentials.app_password,'martin123')  
        
 
 
