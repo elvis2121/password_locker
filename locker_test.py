@@ -18,6 +18,10 @@ class TestUsers(unittest.TestCase):
         self.newuser.saveusers('','')
         self.assertEqual(len(Users.userslist),+2)    
 
+    def test_deleteuser(self):
+        self.newuser.saveusers('kevo','kevo123')
+        self.newuser.deleteuser('kevo','kevo123')
+        self.assertEqual(len(Users.userslist),0)
        
 
 
