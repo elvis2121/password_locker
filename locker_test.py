@@ -39,13 +39,6 @@ class TestLocker(unittest.TestCase):
         self.newcredentials.deletecredentials('tinder','johny','johny123') 
         self.assertEqual(len(Credentials.credentials_list),0)   
 
-    def tearDown(self):
-        '''
-        tearDown method that does clean up after each test case has run.
-        '''
-
-        User.user_list = []
-        Credentials.credentials_list = []
 
 if __name__ == '__main__':
     unittest.main()
