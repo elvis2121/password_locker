@@ -29,7 +29,10 @@ class TestLocker(unittest.TestCase):
         self.assertEqual(self.newcredentials.app_name,'twitter')
         self.assertEqual(self.newcredentials.app_username,'marto')
         self.assertEqual(self.newcredentials.app_password,'martin123')  
-       
+
+    def test_savecredentials(self):
+        self.newcredentials.savecredentials('facebook','elvo','elvo123')
+        self.assertEqual(len(Credentials.credentials_list),+3)   
 
 
 if __name__ == '__main__':
