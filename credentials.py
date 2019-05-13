@@ -19,4 +19,12 @@ class Credentials:
     def displaycredentials(cls):
         print(cls.credentials_list) 
 
+    def deletecredentials(self,appname,username, password):
+        for x in Credentials.credentials_list:
+            if appname and username and password == x:
+                Credentials.credentials_list.remove(appname)
+                Credentials.credentials_list.remove(username)
+                Credentials.credentials_list.remove(password)
+                print('credentials deleted')
+                print(Credentials.credentials_list)
         

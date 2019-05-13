@@ -79,7 +79,7 @@ def main():
 
         def dashboard2():
 
-                print('select a choice:\n ac - add credentials, dc - display credentials')
+                print('select a choice:\n ac - add credentials, dc - display credentials, dl - delete credentials')
                 choice2=input()
 
                 if choice2 == 'ac':
@@ -90,7 +90,13 @@ def main():
                         Credentials.displaycredentials()
                         dashboard2()
 
-                if (choice2 != 'ac' and choice2 != 'dc'):
+                if choice2 == 'dl':
+                        credentials1.app_name = input('enter appname of account to be deleted: ')
+                        credentials1.app_username = input('enter username of account to be deleted: ')
+                        credentials1.app_password = input('enter password of account to be deleted: ')
+                        credentials1.deletecredentials(credentials1.app_name,credentials1.app_username,credentials1.app_password)        
+
+                if (choice2 != 'ac' and choice2 != 'dc' and choice2 !='dl'):
                         print('invalid choice!!!!')
                         dashboard2()          
 
